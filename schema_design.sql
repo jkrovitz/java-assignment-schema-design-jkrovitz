@@ -1,8 +1,8 @@
 -- Create schema and prevent error if schema already exists in database
-CREATE SCHEMA IF NOT EXISTS identity;
+CREATE SCHEMA IF NOT EXISTS identity_schema;
 
--- Set current schema to identity
-SET SEARCH_PATH = 'identity';
+-- Set current schema to identity_schema
+SET SEARCH_PATH = 'identity_schema';
 
 -- Create table location_table and prevent error if table already exists in the schema
 CREATE TABLE IF NOT EXISTS location_table (
@@ -111,7 +111,11 @@ VALUES
     (12, 8)
 ;
 
-SELECT * FROM (
+SELECT 
+    concat(t2.first_name, ' ', t2.last_name) person_name,
+    concat(t2.city, ', ', t2.state, ', ', t2.country) person_location,
+    t2.title interest
+FROM (
     -- sub-query selects the location_id and interest_id from the joined tables where the counts are greater than 1
     (SELECT
         l.location_id,
