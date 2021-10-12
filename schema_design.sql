@@ -55,7 +55,7 @@ VALUES
     ('San Diego', 'California', 'United States'),
     ('Los Angeles', 'California', 'United States'),
     ('Anchorage', 'Alaska', 'United States')
-;
+RETURNING *;
 
 -- Add data to person table
 INSERT INTO person(first_name, last_name, age, location_id)
@@ -72,7 +72,7 @@ VALUES
     ('Katie', 'Knox', 27, 5),
     ('Skylar', 'Chan', 38, 3),
     ('Kayla', 'Stanley', 26, 3)
-;
+RETURNING *;
 
 -- Add data to interest table
 INSERT INTO interest(title)
@@ -85,7 +85,7 @@ VALUES
     ('Ice Skating'),
     ('Watching TV'),
     ('Sledding')
-;
+RETURNING * ;
 
 -- Add data to person_interest table
 INSERT INTO person_interest(person_id, interest_id)
@@ -109,7 +109,7 @@ VALUES
     (10, 6),
     (11, 8),
     (12, 8)
-;
+RETURNING *;
 
 SELECT 
     concat(t2.first_name, ' ', t2.last_name) person_name,
